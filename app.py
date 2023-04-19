@@ -19,7 +19,7 @@ bot_frame.pack_propagate(False)
 # Add elements for task entry
 new_task = tk.Entry(master=top_frame, width=50, textvariable=task_string)
 button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command=lambda: addtask(lb, task_string))
-lb = tk.Listbox(master=root, width=80, height=30, font='Calibri 24 bold')
+lb = tk.Listbox(master=root, width=30, height=10, font='Calibri 16 bold')
 
 # Pack elements into window
 title.pack()
