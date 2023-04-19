@@ -2,6 +2,7 @@ import tkinter as tk
 
 def addtask(lb, task_string):
     lb.insert(0,task_string.get())
+    task_string.set('')
 
 root = tk.Tk()
 root.geometry('500x500')
