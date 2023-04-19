@@ -1,8 +1,7 @@
 import tkinter as tk
 
-def addtask():
-    task_to_add = tk.Frame(master=bot_frame, height=100, width=400, bg="gray")
-    task_to_add.pack(padx=5, pady=5)
+def addtask(lb):
+    lb.insert(0,'Hello')
 
 root = tk.Tk()
 root.geometry('500x500')
@@ -17,13 +16,14 @@ bot_frame.pack_propagate(False)
 
 # Add elements for task entry
 new_task = tk.Entry(master=top_frame, width=50)
-button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command=addtask)
+button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command=lambda: addtask(lb))
+lb = tk.Listbox(master=root, width=80, height=30, font='Calibri 24 bold')
 
 # Pack elements into window
 title.pack()
 top_frame.pack()
 new_task.pack(fill=tk.X, side=tk.LEFT, expand=True)
 button.pack(padx=10)
-bot_frame.pack(pady=20)
+lb.pack(pady=20)
 
 root.mainloop()
