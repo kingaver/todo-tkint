@@ -1,8 +1,12 @@
 import tkinter as tk
 
-def addtask(lb, task_string):
-    lb.insert(0,task_string.get())
+def addtask(task_string, tasks):
+    tasks.append(task_string.get())
     task_string.set('')
+    Tasks.set(tasks)
+
+def check(event):
+    print(check)
 
 root = tk.Tk()
 root.geometry('500x500')
@@ -17,10 +21,14 @@ top_frame = tk.Frame(master=root)
 bot_frame = tk.Frame(master=root, width=450, height=300, bg="white")
 bot_frame.pack_propagate(False)
 
+tasks = []
+Tasks = tk.StringVar(value=tasks)
+
 # Add elements for task entry
 new_task = tk.Entry(master=top_frame, width=50, textvariable=task_string)
-button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command=lambda: addtask(lb, task_string))
-lb = tk.Listbox(master=root, width=30, height=10, font='Calibri 16 bold')
+button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command=lambda: addtask(task_string, tasks))
+lb = tk.Listbox(master=root, width=30, height=10, font='Calibri 16 bold',listvariable=Tasks)
+new_task.bind('<Return>', lambda event: addtask(task_string, tasks))
 
 # Pack elements into window
 title.pack()
