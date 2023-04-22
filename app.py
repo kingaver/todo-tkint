@@ -5,7 +5,7 @@ def addtask(task_string, tasks):
     task_string.set('')
     Tasks.set(tasks)
 
-def delete(event):
+def delete():
     tasks_length = len(tasks)
     current_idx = lb.curselection()[0]
     del tasks[current_idx]
@@ -39,7 +39,7 @@ button = tk.Button(master=top_frame, width=10, padx=10, text="Add Task", command
 button_del = tk.Button(master=top_frame, width=10, padx=10, text="Delete Task", command=delete)
 lb = tk.Listbox(master=root, width=30, height=10, font='Calibri 16 bold',listvariable=Tasks)
 new_task.bind('<Return>', lambda event: addtask(task_string, tasks))
-lb.bind('<BackSpace>', delete)
+lb.bind('<BackSpace>', lambda event: delete())
 
 
 # Pack elements into window
